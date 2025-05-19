@@ -1,6 +1,8 @@
 USE EcommerceDB
 GO
 
+SELECT * FROM Orders;
+
 -- Get all columns from Products.
 SELECT * FROM Products;
 
@@ -127,8 +129,20 @@ FROM OrderDetails
 JOIN Products ON Products.product_id=OrderDetails.product_id;
 
 -- Find the total amount spent by each customer by joining their orders and order details.
+SELECT Customers.name, SUM(OrderDetails.quantity * OrderDetails.price) AS total_price
+FROM Orders
+JOIN OrderDetails ON OrderDetails.order_id=Orders.order_id
+JOIN Customers ON Customers.customer_id=Orders.customer_id
+GROUP BY Customers.name;
 
 -- Retrieve customers who ordered a specific product (e.g., “Laptop”).
+SELECT Customers.name
+FROM Customers
+JOIN Orders ON Customers.customer_id=Orders.customer_id
+JOIN OrderDetails ON Orders.order_id=OrderDetails.order_id
+WHERE OrderDetails.product_id IN (
+	SELECT product_id FROM Products WHERE name = 'Laptop'
+);
 
 -- Get a detailed report showing customer name, order date, product name, quantity, and price per product for all orders.
 
