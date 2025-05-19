@@ -1,7 +1,13 @@
 USE EcommerceDB
 GO
+-- Get all customers
+SELECT * FROM Customers;
 
+-- Get all orders
 SELECT * FROM Orders;
+
+-- Get all order details
+SELECT * FROM OrderDetails;
 
 -- Get all columns from Products.
 SELECT * FROM Products;
@@ -145,13 +151,42 @@ WHERE OrderDetails.product_id IN (
 );
 
 -- Get a detailed report showing customer name, order date, product name, quantity, and price per product for all orders.
+SELECT Customers.name, Orders.order_date, Products.name, OrderDetails.quantity, Products.price
+FROM Customers
+JOIN Orders ON Customers.customer_id = Orders.customer_id
+JOIN OrderDetails ON Orders.order_id = OrderDetails.order_id
+JOIN Products ON Products.product_id = OrderDetails.product_id;
 
 -- List all products that have never been ordered by any customer.
+SELECT name
+FROM Products
+LEFT JOIN OrderDetails ON Products.product_id = OrderDetails.product_id
+WHERE OrderDetails.product_id IS NULL;
 
 -- Show the top 3 customers who spent the most money in total.
+SELECT TOP 3 Customers.name, SUM(Orders.total_amount) as total_spent
+FROM Customers
+JOIN Orders ON Orders.customer_id = Customers.customer_id
+GROUP BY Customers.name
+ORDER BY total_spent DESC;
 
 -- Find the number of different products each customer has purchased.
+SELECT Customers.customer_id, Customers.name, COUNT(DISTINCT Products.name) as number_of_products
+FROM Customers
+JOIN Orders ON Orders.customer_id = Customers.customer_id
+JOIN OrderDetails ON OrderDetails.order_id = Orders.order_id
+JOIN Products ON Products.product_id = OrderDetails.product_id
+GROUP BY Customers.customer_id, Customers.name;
 
 -- Display orders along with the total quantity of items purchased in each order.
+SELECT Orders.order_id, SUM(OrderDetails.quantity) AS quantity_of_items
+FROM Orders
+JOIN OrderDetails ON OrderDetails.order_id = Orders.order_id
+GROUP BY Orders.order_id;
 
 -- Find orders where the total amount in the Orders table does NOT match the sum of prices in the OrderDetails table.
+SELECT Orders.order_id, Orders.total_amount AS total, SUM(OrderDetails.price) AS calculated_total
+FROM Orders
+JOIN OrderDetails ON OrderDetails.order_id = Orders.order_id
+GROUP BY Orders.order_id, Orders.total_amount
+HAVING SUM(OrderDetails.price) <> Orders.total_amount;
