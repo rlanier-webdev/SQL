@@ -166,9 +166,31 @@ SELECT * FROM Enrollments WHERE grade IS NOT NULL AND NOT grade = 'F';
 
 -- Joins & Relationships
 -- 11. List students and the courses they are enrolled in.
+SELECT Students.student_id, Students.name, Courses.course_name
+FROM Students
+JOIN Enrollments ON Enrollments.student_id = Students.student_id
+JOIN Courses on Courses.course_id = Enrollments.course_id;
+
 -- 12. Show instructors and the courses they teach, including semester and year.
+SELECT Instructors.name, Courses.course_name, CourseAssignments.semester, CourseAssignments.year
+FROM Instructors
+JOIN CourseAssignments ON CourseAssignments.instructor_id = Instructors.instructor_id
+JOIN Courses ON Courses.course_id = CourseAssignments.course_id;
+
 -- 13. Display each student with the grades they received, course name included.
+SELECT Students.name, Courses.course_name, Enrollments.grade
+FROM Students
+JOIN Enrollments ON Enrollments.student_id = Students.student_id
+JOIN Courses ON Courses.course_id = Enrollments.course_id
+ORDER BY Enrollments.grade, Students.name;
+
 -- 14. Find which instructor is teaching “Introduction to Programming”.
+SELECT Instructors.name, Courses.course_name
+FROM Instructors
+JOIN CourseAssignments ON CourseAssignments.instructor_id = Instructors.instructor_id
+JOIN Courses ON Courses.course_id = CourseAssignments.course_id
+WHERE Courses.course_name = 'Introduction to Programming';
+
 -- 15. List all students enrolled in courses taught in Spring 2024.
 
 -- Aggregations & Grouping
