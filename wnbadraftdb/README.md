@@ -56,3 +56,7 @@ SELECT player,
 FROM Picks 
 GROUP BY player
 ORDER BY total_points DESC;
+```
+This query ranks players based on their total point contribution across seasons. It uses a window function combined with aggregation to build a performance leaderboard.
+
+---

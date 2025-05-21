@@ -28,12 +28,12 @@ SELECT TOP 5 name, price
 FROM Products
 ORDER BY price DESC;
 
--- Find customers whose names start with “B”.
+-- Find customers whose names start with "B".
 SELECT *
 FROM Customers
 WHERE name LIKE 'b%';
 
--- Show orders placed after ‘2024-03-01’.
+-- Show orders placed after "2024-03-01".
 SELECT *
 FROM Orders
 WHERE order_date > '2024-03-01';
@@ -79,12 +79,12 @@ FROM Orders
 JOIN Customers ON Orders.customer_id = Customers.customer_id
 GROUP BY Customers.name;
 
--- Find customers with “son” in their name.
+-- Find customers with "son" in their name.
 SELECT *
 FROM Customers
 WHERE name LIKE '%son%';
 
--- Find emails ending in “@example.com”.
+-- Find emails ending in "@example.com".
 SELECT email
 FROM Customers
 WHERE email LIKE '%@example.com%';
@@ -105,7 +105,7 @@ SELECT TOP 1 *
 FROM Products
 ORDER BY price DESC;
 
--- If there’s a chance multiple products share the same highest price and you want all of them
+-- If there"s a chance multiple products share the same highest price and you want all of them
 SELECT * 
 FROM Products
 WHERE price = (SELECT MAX(price) FROM Products);
@@ -125,7 +125,7 @@ SELECT name, price
 FROM Products
 WHERE price BETWEEN 30 AND 200;
 
--- Rename “Coffee Maker” to “Espresso Machine”
+-- Rename "Coffee Maker" to "Espresso Machine"
 UPDATE Products
 SET name = 'Espresso Machine'
 WHERE name = 'Coffee Maker';
@@ -135,7 +135,7 @@ SELECT Customers.name, Orders.order_date
 FROM Orders
 JOIN Customers ON Customers.customer_id=Orders.customer_id;
 
--- Show each order’s products with product names, quantities, and prices.
+-- Show each order"s products with product names, quantities, and prices.
 SELECT order_id, Products.name, quantity, OrderDetails.price
 FROM OrderDetails
 JOIN Products ON Products.product_id=OrderDetails.product_id;
@@ -147,7 +147,7 @@ JOIN OrderDetails ON OrderDetails.order_id=Orders.order_id
 JOIN Customers ON Customers.customer_id=Orders.customer_id
 GROUP BY Customers.name;
 
--- Retrieve customers who ordered a specific product (e.g., “Laptop”).
+-- Retrieve customers who ordered a specific product (e.g., "Laptop").
 SELECT Customers.name
 FROM Customers
 JOIN Orders ON Customers.customer_id=Orders.customer_id
