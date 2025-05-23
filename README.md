@@ -61,11 +61,14 @@ A deep-dive into WNBA draft data with a focus on player performance, draft trend
   - Win shares analysis and college/team breakdowns
 
 - **Highlight Queries**:
-  - Rank players by total points and win shares
-  - Identify top-performing draftees by year or college
-  - Calculate average points per college
-  - Use partitioning to compare players within their schools
-  - Label players by experience level using `CASE`
+  - Top scorers by total points (games × points per game)
+  - Players ranked by win shares per 40 minutes
+  - Average points per college and draftees per team
+  - Label players as veterans or rookies based on years played
+  - Determine draft-year leaders by performance
+
+- **Data Source**:
+  - [WNBA Draft Basketball Player Data (1997–2021) on Kaggle](https://www.kaggle.com/datasets/mattop/wnba-draft-basketball-player-data-1997-2021)
 
 📄 [View WNBADraftDB README](https://github.com/rlanier-webdev/SQL/blob/main/wnbadraftdb/README.md)
 

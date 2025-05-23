@@ -13,6 +13,11 @@ This project explores WNBA Draft data from **1997 to 2022** using SQL. It includ
 
 ---
 
+## 📄 Data Source
+  - [WNBA Draft Basketball Player Data (1997–2021) on Kaggle](https://www.kaggle.com/datasets/mattop/wnba-draft-basketball-player-data-1997-2021)
+
+---
+
 ## 🎯 Objectives
 
 - Write queries to explore and manipulate sports data
