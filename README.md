@@ -95,7 +95,8 @@ A comprehensive SQL analysis of Grammy Awards data from 1965 to 2024, focused on
 
 **Data Source:**
 
-[Grammy Winners and Nominees (1965–2024) on Kaggle](https://www.kaggle.com/datasets/johnpendenque/grammy-winners-and-nominees-from-1965-to-2024)  
+  - [Grammy Winners and Nominees (1965–2024) on Kaggle](https://www.kaggle.com/datasets/johnpendenque/grammy-winners-and-nominees-from-1965-to-2024)  
+
 📄 View [GrammysDB README](https://github.com/rlanier-webdev/SQL/tree/main/grammysDB#readme)
 
 ---
