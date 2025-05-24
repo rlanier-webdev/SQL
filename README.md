@@ -74,6 +74,32 @@ A deep-dive into WNBA draft data with a focus on player performance, draft trend
 
 ---
 
+4. 🎤 GrammysDB  
+A comprehensive SQL analysis of Grammy Awards data from 1965 to 2024, focused on uncovering insights into artist performance, award categories, and nomination patterns. This project reinforces key SQL concepts using a real-world entertainment dataset.
+
+**Focus Areas:**
+
+- Filtering and pattern matching (e.g., song titles with "Love")  
+- Aggregation and grouping (wins vs. nominations per artist/category)  
+- CTEs and subqueries for advanced summarization  
+- Identifying duplicates, outliers, and unique records  
+- Conditional logic using `CASE` statements  
+
+**Highlight Queries:**
+
+- Most nominated artist in a single year  
+- Artists with Grammy wins in 3+ different categories  
+- Duplicate nominations across years and categories  
+- Songs with multiple producers or recurring title themes  
+- Artists who were nominated but never won  
+
+**Data Source:**
+
+[Grammy Winners and Nominees (1965–2024) on Kaggle](https://www.kaggle.com/datasets/johnpendenque/grammy-winners-and-nominees-from-1965-to-2024)  
+📄 View [GrammysDB README](https://github.com/rlanier-webdev/SQL/tree/main/grammysDB#readme)
+
+---
+
 ## 🔧 Tools Used
 
 - SQL Server (T-SQL)
