@@ -74,7 +74,7 @@ A deep-dive into WNBA draft data with a focus on player performance, draft trend
 
 ---
 
-4. 🎤 GrammysDB  
+### 4. 🎤 GrammysDB  
 A comprehensive SQL analysis of Grammy Awards data from 1965 to 2024, focused on uncovering insights into artist performance, award categories, and nomination patterns. This project reinforces key SQL concepts using a real-world entertainment dataset.
 
 **Focus Areas:**
