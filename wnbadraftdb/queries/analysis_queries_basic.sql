@@ -6,7 +6,7 @@
 USE WNBADraftDB
 GO
 
-SELECT * FROM Picks
+SELECT * FROM Picks;
 
 -- 1. List all players who were drafted in the year 2000.
 SELECT player FROM Picks WHERE year = 2000;
@@ -33,13 +33,13 @@ ORDER BY total_points DESC;
 -- 6. Show the top 5 players with the highest win shares (win_shares).
 SELECT TOP 5 player, win_shares
 FROM Picks
-ORDER BY win_shares DESC
+ORDER BY win_shares DESC;
 
 -- 7. Get the 3 players with the lowest win shares per 40 minutes (win_shares_40).
 SELECT TOP 3 player, win_shares_40
 FROM Picks
 WHERE win_shares_40 IS NOT NULL
-ORDER BY win_shares ASC
+ORDER BY win_shares ASC;
 
 -- 8. Find the average points scored by players from each college.
 SELECT college, AVG(points) AS avg_points
